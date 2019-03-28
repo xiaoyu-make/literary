@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   	<constant name="struts.configuration.xml.reload" value="true"/>
+    <!--启用动态方法调用-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	
+	<package name="wxy" extends="struts-default,json-default" namespace="/jsp/literary">
+	    <action name="aboutme"  method="everydaySentence" class="com.literary.web.controller.AboutMeController">
+			<result name="success">/jsp/literary/aboutme/daily_sentence.jsp</result>			
+		</action>
+	    <action name="addAboutMe"  method="addAboutMe" class="com.literary.web.controller.AboutMeController">
+ 			<result name="success">/jsp/literary/aboutme/allTableDailySentence.jsp</result>		
+	 		<result name="error">/jsp/common/error.jsp</result>	
+		</action>
+		<action name="editAboutMe"  method="editAboutMe" class="com.literary.web.controller.AboutMeController">
+			<result name="success">/jsp/literary/aboutme/allTableDailySentence.jsp</result>		
+ 			<result name="error">/jsp/common/error.jsp</result>				
+		</action>		
+		<action name="deleteAboutMe"  method="deleteAboutMe" class="com.literary.web.controller.AboutMeController">
+			<result name="success">/jsp/literary/aboutme/allTableDailySentence.jsp</result>		
+ 			<result name="error">/jsp/common/error.jsp</result>				
+		</action>	
+		<action name="findAllAboutMeDaily"  method="everydaySentence" class="com.literary.web.controller.AboutMeController">
+			<result name="success">/jsp/literary/aboutme/allTableDailySentence.jsp</result>			
+		</action>
+		<action name="findAllAboutMe"  method="findAllAboutMe" class="com.literary.web.controller.AboutMeController">
+			<result name="success" type="json">
+				<param name="root">allDailySentence</param>
+			</result>			
+		</action>				
+	</package>
+</struts>

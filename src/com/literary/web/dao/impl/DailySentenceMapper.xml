@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.literary.web.dao.IDailySentenceDao">
+	<!-- type指向javabean类，id可自定义 -->
+	<resultMap id="BaseResultMap" type="com.literary.entity.DailySentence">
+		<id column="id" property="id" jdbcType="INTEGER" /> <!-- property对应实体类的属性名称，column为数据库字段名 -->
+		<result column="date" property="date" jdbcType="TIMESTAMP" />
+		<result column="daily_sentence" property="dailySentence" jdbcType="VARCHAR" />
+	</resultMap>
+
+
+    <!--获取当天名言警句-->
+   	<select id="todaySentence" parameterType="int" resultMap="BaseResultMap">
+   		select * from daily_sentence order by date desc limit 1
+   	</select>
+    <!-- 添加一条名言警句 -->
+   	<insert id="insertDailySentence">
+   		insert into daily_sentence (daily_sentence,date) value (#{textarea_daily},#{sqlDate})
+   	</insert> 
+    <!-- 删除名言警句 -->
+    <delete id="deleteDailySentence" parameterType="int[]">
+    	delete from daily_sentence where id in
+    	<foreach  collection="array" item="id" index="no" open="(" separator="," close=")">
+			#{id}
+    	</foreach>
+    </delete>
+    <!-- 编辑一条名言警句 -->
+    <update id="editDailySentence">
+    	update daily_sentence set daily_sentence=#{textarea_daily},date=#{sqlDate} where id=#{id}
+    </update>   
+    <!--获得所有名言警句 -->
+    <select id="getAllDailySentence" resultMap="BaseResultMap">
+   		select * from daily_sentence order by date desc limit #{maps.pageNum},#{maps.pageSize}
+   		<!--select * from daily_sentence order by date desc limit #{pageNum},#{pageSize} -->
+    </select>
+    <!--获得所有名言警句个数 -->
+    <select id="getCountDailySentence" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+   		select COUNT(*) from daily_sentence
+    </select>  
+</mapper>

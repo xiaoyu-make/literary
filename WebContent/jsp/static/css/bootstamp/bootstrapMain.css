@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+body{
+	background-color: #c9eedd;
+}
+.float-left{
+	float:left;		
+}
+.float-right{
+	float:left;		
+}
+.float-right-padding{
+	float:right;	
+	padding: 0px;
+}
+.bootstrapHead {
+    display: flex;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    background-color: #75b1d4;
+    border-radius: 0px;
+    
+}
+.nav-link{
+	padding:0 .2rem 0rem .2rem;
+	color: white;
+}
+.big-title{
+	font-size: 1.35rem; 
+	color: white;
+}
+.head-right{
+	top: 18px; 
+	padding-right: 0px; 
+	color: white;
+	font-size: 0.85rem;
+}
+.welcome-head{
+	text-align: right; 
+	margin-top: -16px;
+}
+#accordion .buttomCard{
+    width: 16.22222%;
+    height: 100%;
+    position: fixed;	
+}
+.breadcrumb{
+	border-radius: 0rem;
+    margin-bottom: 0rem;
+}
+.col-sm-10 .border{
+	width: 110%;
+    background-color: #f2f2f2;
+    height: 100%;
+   /*  position: fixed; */
+}
+#accordion .card-link{
+	background-color:#e2f0ff;
+}
+.float-right-padding>.border>.apartBorder{
+	padding: 4px 15px;
+	overflow-y: auto;
+}
+.cursorPointer{
+    cursor: pointer;	
+}
+.float-right-padding>.border>.btn-group{
+	padding-left: 3px;
+}
+.float-right-padding .btn-group button+button {
+	margin-left: 8px !important;
+}
+.apartBorder>.table-bordered{
+	width: 83%;
+}
+.apartBorder th:last-child{
+	width: 12%;
+}
+/* 分页开始 */
+.pages {
+	width: 83%;
+	text-align: right;
+	padding: 10px 0;
+	clear: both;
+}
+
+.pages a, .pages b {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0 2px;
+}
+
+.pages a, .pages b {
+	border: 1px solid #5FA623;
+	background: #fff;
+	padding: 2px 6px;
+	text-decoration: none
+}
+
+.pages b, .pages a:hover {
+	background: #7AB63F;
+	color: #fff;
+}
+/* 分页结束 */
