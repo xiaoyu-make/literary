@@ -1,5 +1,6 @@
 package com.literary.web.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.literary.entity.Motto;
@@ -11,7 +12,7 @@ public interface IMottoDao {
 	 * 
 	 * @return
 	 */
-	public Boolean addMotto(String motto);
+	public Boolean addMotto(@Param("motto")String motto);
 	
 	/**
 	 * 获取座右铭

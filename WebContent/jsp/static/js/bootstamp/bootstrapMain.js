@@ -215,7 +215,7 @@ $(function(){
 		});
     });
     /**
-     * 导航栏
+     * 右侧导航栏
      */
     $('.container-fluid').on('click','.card-link,.list-group-item',function(){
     	var card_header = $('.collapse.show').prev().find('.card-header').text();
@@ -235,6 +235,25 @@ $(function(){
 	    	}
 		}
     });
+    /**
+     * 座右铭
+     */
+    $('.container-fluid').on('click','#collapseOne a:nth-child(2)',function(){
+    	var url = $(this).attr('url');
+    	$.ajax({
+			type : "GET",
+			url : url,
+			cache: false,
+			success : function(data) {
+				
+				alert(data.motto);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });
+    
 });
 
 /**

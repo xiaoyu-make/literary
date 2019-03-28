@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.literary.web.dao.IMottoDao">
+	<!-- type指向javabean类，id可自定义 -->
+	<resultMap id="mottoResultMap" type="com.literary.entity.Motto">
+		<result column="motto" property="motto" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!--获取当天名言警句-->
+   	<select id="getMotto" resultMap="mottoResultMap">
+   		select * from motto 
+   	</select>
+    <!-- 添加一条名言警句 -->
+   	<insert id="addMotto">
+   		insert into motto (motto) value (#{motto})
+   	</insert> 
+</mapper>

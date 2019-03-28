@@ -55,8 +55,8 @@
 						<div class="card-body">
 							<div class="list-group">
 								<a id="collapseOneFirst" url="<%=request.getContextPath()%>/literary/dailySentence/todaySentence" class="rounded-0 list-group-item list-group-item-action cursorPointer">今日一句</a> 
-								<a url="<%=request.getContextPath() %>/literary/" class="list-group-item list-group-item-action rounded-0">座右铭</a> 
-								<a href="#" class="list-group-item list-group-item-action rounded-0">关于我</a>
+								<a url="<%=request.getContextPath() %>/literary/mottoController/getMotto" class="list-group-item list-group-item-action rounded-0 cursorPointer">座右铭</a> 
+								<a url="<%=request.getContextPath() %>/literary/mottoController/getMotto" class="list-group-item list-group-item-action rounded-0">关于我</a>
 							</div>
 						</div>
 					</div>
