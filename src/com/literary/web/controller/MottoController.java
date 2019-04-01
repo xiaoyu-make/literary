@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -32,10 +33,16 @@ public class MottoController {
 		return Mot;
 	}
 	
-	@ResponseBody
 	@RequestMapping("getMotto")
-	public Motto getMotto(HttpServletRequest request){
+	public String getMotto(HttpServletRequest request,Model model){
 		Motto Mot = mott.getMotto();
-		return Mot;
+		model.addAttribute("motto", Mot);
+		if(Mot==null)
+			return "../common/error";
+		return "bootstamp/motto/motto";
 	}
+	
 }
+
+
+

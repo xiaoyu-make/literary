@@ -245,8 +245,7 @@ $(function(){
 			url : url,
 			cache: false,
 			success : function(data) {
-				
-				alert(data.motto);
+				$('.apartBorder').html(data);
 			},
 			error : function(request) {
 			    alert("请求失败");
