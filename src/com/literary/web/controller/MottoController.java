@@ -39,7 +39,7 @@ public class MottoController {
 		model.addAttribute("motto", Mot);
 		if(Mot==null)
 			return "../common/error";
-		return "bootstamp/motto/motto";
+		return "bootstamp/dailySentence/motto";
 	}
 	
 }

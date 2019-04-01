@@ -236,9 +236,26 @@ $(function(){
 		}
     });
     /**
-     * 座右铭
+     * 每日一句/座右铭
      */
     $('.container-fluid').on('click','#collapseOne a:nth-child(2)',function(){
+    	var url = $(this).attr('url');
+    	$.ajax({
+			type : "GET",
+			url : url,
+			cache: false,
+			success : function(data) {
+				$('.apartBorder').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });
+    /**
+     * 每日一句/关于我
+     */
+    $('.container-fluid').on('click','#collapseOne a:nth-child(3)',function(){
     	var url = $(this).attr('url');
     	$.ajax({
 			type : "GET",
