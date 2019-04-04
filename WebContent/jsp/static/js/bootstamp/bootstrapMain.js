@@ -269,6 +269,22 @@ $(function(){
 			}
 		});
     });
+    /**
+     * 写作/日记(获取日记模板)
+     */
+    $('.container-fluid').on('click','#collapseTwo a:nth-child(1)',function(){
+    	$.ajax({
+			type : "GET",
+			url : "writing/diary.jsp",
+			cache: false,
+			success : function(data) {
+				$('.apartBorder').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			},
+		});
+    });   
     
 });
 

@@ -11,7 +11,7 @@
 	href="<%=request.getContextPath() %>/jsp/static/css/bootstamp/bootstrap.min.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath() %>/jsp/static/css/bootstamp/bootstrapMain.css?0=49">
-
+	
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/jquery.2.1.4.min.js"></script>
 <script type="text/javascript"
@@ -62,16 +62,18 @@
 					</div>
 				</div>
 				<div class="card">
-					<a class="collapsed card-link" data-toggle="collapse"
-						href="#collapseTwo">
+					<a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
 						<div class="card-header">写作</div>
 					</a>
 					<div id="collapseTwo" class="collapse" data-parent="#accordion">
 						<div class="card-body">
 							<div class="list-group">
-								<a href="#" class="list-group-item list-group-item-action rounded-0">我的作品</a> 
-								<a href="#" class="list-group-item list-group-item-action rounded-0">Second item</a> 
-								<a href="#" class="list-group-item list-group-item-action rounded-0">Third item</a>
+								<a class="list-group-item list-group-item-action rounded-0 cursorPointer">日记</a> 
+								<a url="#" class="list-group-item list-group-item-action rounded-0 cursorPointer">散文</a> 
+								<a url="#" class="list-group-item list-group-item-action rounded-0 cursorPointer">长篇小说</a>
+								<a url="#" class="list-group-item list-group-item-action rounded-0 cursorPointer">灵感</a>
+								<a url="#" class="list-group-item list-group-item-action rounded-0 cursorPointer">标记</a>
+								
 							</div>
 						</div>
 					</div>
