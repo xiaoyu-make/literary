@@ -201,7 +201,7 @@ $(function(){
 		}
         url+='ids='+st;//为 删除链接 的 href 进行赋值
 		$.ajax({
-			type : "GET",
+			type : "POST",
 			url : url,
 			cache: false,
 		    dataType:'text', 
@@ -285,6 +285,31 @@ $(function(){
 			},
 		});
     });   
+    /**
+     * 
+     */
+    $('.container-fluid').on('click',".btn-writing-submit",function(){
+    	/*var wether = $("#sel").val();
+    	var adress = $("#addr").val();
+    	var date = $("#datetimepicker1").val();
+    	var comment = $("#comment").val();*/
+    	var url = $("#form-writing").attr('action');
+    	/*url += "?whther="+wether+"&adress="+adress+"&date="+date+"&daily="+comment;*/
+		$.ajax({
+			type : "POST",
+			url : url,
+			cache: false,
+		    dataType:'text', 
+			data: { textarea_daily: "" },  
+			success : function(data) {
+				alert('fd');
+				$('.float-right-padding .apartBorder').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });
     
 });
 

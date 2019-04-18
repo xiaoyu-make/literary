@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.literary.web.dao.IDiaryDao">
+	<!-- type指向javabean类，id可自定义 -->
+	<resultMap id="diaryResultMap" type="com.literary.entity.Diary">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="userId" property="userid" jdbcType="INTEGER" />
+		<result column="wether" property="wether" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="date" property="date" jdbcType="TIMESTAMP" />
+		<result column="diary" property="diary" jdbcType="VARCHAR" />
+	</resultMap>
+	<!--获取当天名言警句-->
+	<select id="getMotto" resultMap="mottoResultMap">
+   		select * from motto 
+   	</select>
+    <!-- 添加一条日记 -->
+   	<insert id="addDiary">
+   		insert into diary (userId,wether,address,date,diary) value (#{wether},#{wether},#{adress},#{date},#{comment});
+   	</insert> 
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

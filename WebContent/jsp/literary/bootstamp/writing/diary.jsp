@@ -22,10 +22,10 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/datetimepicker/tempusdominus-bootstrap-4.js"></script>	
 	
-<form id="form-writing" action="" class="form-inline" style="display: unset;">
+<form id="form-writing" action="<%=request.getContextPath() %>/literary/diary/addDiary" class="form-inline" style="display: unset;">
 	<div class="form-group">
 		<b for="sel">天气:</b> 
-		<select class="form-control margin-left7" id="sel">
+		<select class="form-control margin-left7" name="sel">
 			<option>晴</option>
 			<option>阴</option>
 			<option>风</option>
@@ -35,22 +35,22 @@
 			<option>大雪</option>
 		</select> 
 		<b class="margin-left15" for="addr">地点:</b>
-		<input type="text" class="form-control margin-left7" id="addr" style="width:250px;">
+		<input type="text" class="form-control margin-left7" name="addr" style="width:250px;">
 		<b class="margin-left15" for="dat">日期:</b>
  		<div class="input-group date margin-left7" id="datetimepicker1" data-target-input="nearest">
-    		<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+    		<input type="text" name = "datetime" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
     		<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
         		<div class="input-group-text"><i class="fa fa-calendar"></i></div>
     		</div>
     	</div>		
 	</div>
 	<b for="comment">正文:</b>
-	<div class="form-group" style="height: 83%;margin-right:9px;">					
-		<textarea class="form-control height-100" id="comment">
+	<div class="form-group" style="height: 83%;margin-right:9px;">
+		<textarea class="form-control height-100" id="comment" name="comment" style="text-decoration:underline;">
 			
-		</textarea>	
+		</textarea>
 	</div>
-	  <button type="submit" class="btn btn-primary" style="margin-top: 7px;">提交</button>
+	  <button class="btn btn-primary btn-writing-submit" style="margin-top: 7px;">提交</button>
 </form>
 <script type="text/javascript">
 $(function(){

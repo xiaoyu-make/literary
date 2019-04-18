@@ -1,5 +1,6 @@
 package com.literary.web.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +34,8 @@ public class DailySentenceController {
 	}
 	
 	@RequestMapping("addSentence")
-	public String addSentence(HttpServletRequest request, HttpServletResponse response) {
+	public String addSentence(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		String textarea_daily = request.getParameter("textarea_daily");
 		Boolean insertDailySentence = dailysentence.insertDailySentence(textarea_daily);
 		if (insertDailySentence == false)
