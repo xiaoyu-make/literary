@@ -79,7 +79,7 @@ body{
 .pages {
 	width: 83%;
 	text-align: right;
-	padding: 10px 0;
+	padding: 0 0 10px 0;
 	clear: both;
 }
 
@@ -126,7 +126,9 @@ body{
 	width: 83.5%;
 	background: url(../../image/fnt_10012_bg.gif);
 }
-
+.table {
+    margin-bottom: 0rem!important;
+}
 
 
 

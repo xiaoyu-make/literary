@@ -1,6 +1,7 @@
 package com.literary.web.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,10 +21,20 @@ public class DiaryController {
 	
 	@RequestMapping("addDiary")
 	public String addDiary(HttpServletRequest request,Model model) throws UnsupportedEncodingException {
-		String  adress = new String(request.getParameter("addr").getBytes("ISO8859-1"), "utf-8");
-		String  date = new String(request.getParameter("datetime").getBytes("ISO8859-1"), "utf-8");
-		String  comment = new String(request.getParameter("comment").getBytes("ISO8859-1"), "utf-8");
-		String  wether = new String(request.getParameter("sel").getBytes("ISO8859-1"), "utf-8");
+		String  adress = "";
+		if(request.getParameter("adress") !=null)
+		    adress = new String(request.getParameter("adress").getBytes("ISO8859-1"), "utf-8");
+		String dateStr = "";
+		if(request.getParameter("date")!=null){
+			dateStr = new Date().toString();
+		}
+		String  date = new String(dateStr.getBytes("ISO8859-1"), "utf-8");
+		String  comment = "";
+		if(request.getParameter("daily")!=null)
+			comment = new String(request.getParameter("daily").getBytes("ISO8859-1"), "utf-8");
+		String  wether = "";
+		if(request.getParameter("wether") !=null)
+		    wether = new String(request.getParameter("wether").getBytes("ISO8859-1"), "utf-8");
 		Boolean addDiary = diaryService.addDiary(wether,adress,date,comment);
 		if(!addDiary)
 			return "../common/error";

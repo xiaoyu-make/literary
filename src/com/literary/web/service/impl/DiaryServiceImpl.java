@@ -18,15 +18,9 @@ public class DiaryServiceImpl implements IDiaryService {
 	
 	@Override
 	public Boolean addDiary(String wether,String adress,String dateStr,String comment) {
-		int userId = 0;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        java.sql.Timestamp date = null;
-        try {
-        	Date dateS = sdf.parse(dateStr);
-        	date=new java.sql.Timestamp(dateS.getTime());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		int userId = 0;		
+		long parse = Date.parse(dateStr);
+		java.sql.Timestamp date=new java.sql.Timestamp(parse);
         return diaryDao.addDiary(userId,wether,adress,date,comment);
 	}
 }

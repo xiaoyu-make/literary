@@ -11,13 +11,13 @@
 		<result column="date" property="date" jdbcType="TIMESTAMP" />
 		<result column="diary" property="diary" jdbcType="VARCHAR" />
 	</resultMap>
-	<!--获取当天名言警句-->
+ 	<!--获取当天名言警句
 	<select id="getMotto" resultMap="mottoResultMap">
    		select * from motto 
-   	</select>
+   	</select> -->
     <!-- 添加一条日记 -->
    	<insert id="addDiary">
-   		insert into diary (userId,wether,address,date,diary) value (#{wether},#{wether},#{adress},#{date},#{comment});
+   		insert into diary (userId,wether,address,date,diary) value (#{userId},#{wether},#{adress},#{date},#{comment});
    	</insert> 
 </mapper>
 

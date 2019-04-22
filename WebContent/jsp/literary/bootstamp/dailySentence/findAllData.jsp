@@ -1,30 +1,28 @@
 <%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="../../../init/tags.jsp"%>
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			<th><input type="checkbox" id="checkAll" /></th>
-			<th data-field="id">id</th>
-			<th data-field="dailySentence">daily_sentence</th>
-			<th data-field="date">date</th>
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach var="dailySentence" items="${allDailySentence }"
-			varStatus="status">
+<%@ include file="../../../common/bootstamp/crud.jsp" %>
+<div class="border apartBorder">
+	<table class="table table-bordered">
+		<thead>
 			<tr>
-				<td><input type="checkbox" name="imgVo" value="" /></td>
-				<td>${dailySentence.id }</td>
-				<td>${dailySentence.dailySentence }</td>
-				<td><fmt:formatDate value="${dailySentence.date }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+				<th><input type="checkbox" id="checkAll" /></th>
+				<th data-field="id">id</th>
+				<th data-field="dailySentence">daily_sentence</th>
+				<th data-field="date">date</th>
 			</tr>
-		</c:forEach>
-	</tbody>
-</table>
-<%-- <form action="${pageContext.request.contextPath }/literary/dailySentence/getAllSentence" method="get" id="page_form">
-	<input type="hidden" id="page_current" name="pageNum" value="${currentPage }">
-</form> --%>
-<input action="${pageContext.request.contextPath }/literary/dailySentence/getAllSentence?" type="hidden" id="page_current" value="${currentPage }">
+		</thead>
+		<tbody>
+			<c:forEach var="dailySentence" items="${allDailySentence }" varStatus="status">
+				<tr>
+					<td><input type="checkbox" name="imgVo" value="" /></td>
+					<td>${dailySentence.id }</td>
+					<td>${dailySentence.dailySentence }</td>
+					<td><fmt:formatDate value="${dailySentence.date }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	<input action="${pageContext.request.contextPath }/literary/dailySentence/getAllSentence?" type="hidden" id="page_current" value="${currentPage }">
 
 <div class="pages">
 	<span style="font-size: 12px; color: #666;">共<font
@@ -83,3 +81,7 @@
 		</a>
 	</c:if>
 </div>
+</div>
+<%-- <form action="${pageContext.request.contextPath }/literary/dailySentence/getAllSentence" method="get" id="page_form">
+	<input type="hidden" id="page_current" name="pageNum" value="${currentPage }">
+</form> --%>

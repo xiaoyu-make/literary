@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.literary.entity.DailySentence;
@@ -26,11 +25,14 @@ public class DailySentenceController {
 	@Resource
 	IDailySentenceService dailysentence;
 	
-	@ResponseBody
 	@RequestMapping("todaySentence")
-	public DailySentence todaySentence(HttpServletRequest request, HttpServletResponse response,Model model) {		
+	public String todaySentence(HttpServletRequest request, HttpServletResponse response,Model model) {		
 		DailySentence dailySente = dailysentence.getDailySentence();
-		return dailySente;
+		if(dailySente==null){
+			return "../common/error";
+		}
+		model.addAttribute("dailySente", dailySente);
+		return "/bootstamp/dailySentence/oneDailySentence";
 	}
 	
 	@RequestMapping("addSentence")
@@ -90,7 +92,6 @@ public class DailySentenceController {
 		if(allDailySentence != null){
 			modelAndView.setViewName("/bootstamp/dailySentence/findAllData");
 			modelAndView.addObject("allDailySentence", allDailySentence);
-			
 		}
 		return modelAndView;
 	}

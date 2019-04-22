@@ -23,9 +23,9 @@
 	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/datetimepicker/tempusdominus-bootstrap-4.js"></script>	
 	
 <form id="form-writing" action="<%=request.getContextPath() %>/literary/diary/addDiary" class="form-inline" style="display: unset;">
-	<div class="form-group">
+	<div class="form-group" style="padding-top: 10px;">
 		<b for="sel">天气:</b> 
-		<select class="form-control margin-left7" name="sel">
+		<select class="form-control margin-left7" id="sel">
 			<option>晴</option>
 			<option>阴</option>
 			<option>风</option>
@@ -35,10 +35,10 @@
 			<option>大雪</option>
 		</select> 
 		<b class="margin-left15" for="addr">地点:</b>
-		<input type="text" class="form-control margin-left7" name="addr" style="width:250px;">
+		<input type="text" class="form-control margin-left7" id="addr" style="width:250px;">
 		<b class="margin-left15" for="dat">日期:</b>
  		<div class="input-group date margin-left7" id="datetimepicker1" data-target-input="nearest">
-    		<input type="text" name = "datetime" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+    		<input type="text" id = "datetime" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
     		<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
         		<div class="input-group-text"><i class="fa fa-calendar"></i></div>
     		</div>
@@ -50,7 +50,7 @@
 			
 		</textarea>
 	</div>
-	  <button class="btn btn-primary btn-writing-submit" style="margin-top: 7px;">提交</button>
+	  <button type="button" class="btn btn-primary btn-writing-submit" style="margin-top: 7px;">提交</button>
 </form>
 <script type="text/javascript">
 $(function(){

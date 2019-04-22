@@ -10,7 +10,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath() %>/jsp/static/css/bootstamp/bootstrap.min.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath() %>/jsp/static/css/bootstamp/bootstrapMain.css?0=49">
+	href="<%=request.getContextPath() %>/jsp/static/css/bootstamp/bootstrapMain.css?70=49">
 	
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/jquery.2.1.4.min.js"></script>
@@ -19,7 +19,7 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstrap-table.js"></script>
 <script type="text/javascript"
-	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstrapMain.js"></script>
+	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstrapMain.js?zsP70=49ss"></script>
 </head>
 <body style="overflow-x: hidden;">
 	<div class="bootstrapHead">
@@ -160,8 +160,8 @@
 				<li class="breadcrumb-item active">今日</li>
 				<!-- <li class="breadcrumb-item active">Data</li> -->
 			</ol>
-			<div class="border">
-				<div class="btn-group">
+			<div class="border rightPart">
+				<<%-- div class="btn-group">
 					<button tab_url="<%=request.getContextPath()%>/literary/dailySentence/getAllSentence" type="button" class="btn btn-info"><span class="glyphicon glyphicon-search"></span>查找全部</button>
 					<button  data-toggle="modal" data-target="#myModal" tab_url="<%=request.getContextPath()%>/literary/dailySentence/addSentence?" type="button" class="btn" id="modalAdd" ><span class="glyphicon glyphicon-plus"></span>添加</button>
 					<button  data-toggle="modal" data-target="#myModal" tab_url="<%=request.getContextPath()%>/literary/dailySentence/editSentence?" type="button" class="btn" id="modalEdit"><span class="glyphicon glyphicon-edit"></span>修改</button>
@@ -169,7 +169,7 @@
 				</div>
 				<div class="border apartBorder">
 					
-				</div>
+				</div> --%>
 			</div>
 		</div>
 

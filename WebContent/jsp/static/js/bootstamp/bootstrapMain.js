@@ -37,7 +37,7 @@ $(function(){
 		var breadcrumbHeight= $('.bootstrapHead').height();
 		var collapseHeight = $(window).height()-sumHeight-breadcrumbHeight-24-(collapseLength)*2-3;
 		var collapse = showCollapse.find('.card-body').height(collapseHeight);
-		$('.float-right-padding .apartBorder').css("height",$(window).height()-breadcrumbHeight-$('.breadcrumb').height()-$('.btn-group').height()-53);
+		$('.float-right-padding .rightPart').css("height",$(window).height()-breadcrumbHeight-$('.breadcrumb').height()-$('.btn-group').height()-50);
 		var buttomCardWidth = $(window).width();
 		if(buttomCardWidth<1300&&buttomCardWidth>900){
 			$('.buttomCard').css('width','16%');
@@ -48,12 +48,12 @@ $(function(){
 		}
 	});
 	/**
-	 * 点击今日一句的右侧显示
+	 * 点击今日一句的右侧显示(每日一句/今日一句)
 	 */
 	$('.container-fluid').on('click','#collapseOneFirst',function(){
 		var url = $('#collapseOneFirst').attr('url');
 		$.get(url, function(data) {
-			$('.float-right-padding .apartBorder').html('<input class="singleid" type="hidden" value='+data.id+'>'+data.dailySentence);
+			$('.float-right-padding .rightPart').html(data);
 			
 		});
 	});
@@ -73,7 +73,7 @@ $(function(){
 			processData : false,
 			contentType : false,
 			success : function(data) {
-				$('.float-right-padding .apartBorder').html(data);
+				$('.float-right-padding .rightPart').html(data);
 			},
 			error : function(request) {
 				
@@ -122,7 +122,7 @@ $(function(){
 			processData : false,
 			contentType : false,
 			success : function(data) {
-				$('.float-right-padding .apartBorder').html(data);
+				$('.float-right-padding .rightPart').html(data);
 			},
 			error : function(request) {
 				
@@ -134,7 +134,7 @@ $(function(){
      * 今日一句的添加,编辑,删除的模态框
      */
     var id = null;
-    $('.container-fluid #modalAdd,#modalEdit,#modalDel').click(function(){
+    $('.container-fluid').on('click','#modalAdd,#modalEdit,#modalDel',function(){
     	$('.float-right-padding').next().attr('id','myModal');
     	$('#myModal .modal-content').css("margin-top","34%");
 		$(this).addClass('btn-info');
@@ -150,9 +150,9 @@ $(function(){
     		$('#myModal textarea').attr('placeholder',"请编辑名言");
     		$('#myModal .modal-title').text('编辑');
     		var delSize = $("[name=imgVo]:checked").size();
-			if($(".apartBorder input").hasClass("singleid")){
-				$('#myModal textarea').text($('div.apartBorder').text());
-				id = $('.apartBorder input').text();
+			if($(".rightPart input").hasClass("singleid")){
+				$('#myModal textarea').text($('div.rightPart').text());
+				id = $('.rightPart input').text();
 			}else{
 				if(delSize==1){
 					id = $("[name=imgVo]:checked").parent().next().text();					
@@ -181,7 +181,7 @@ $(function(){
 		if(modaltitle=='编辑'){
 			st = id;
 		}else if(modaltitle=='删除'){
-			if($(".apartBorder input").hasClass("singleid")){
+			if($(".rightPart input").hasClass("singleid")){
 				st = $('.singleid').val();
 			}else{
 				if(delSize==0){
@@ -207,7 +207,7 @@ $(function(){
 		    dataType:'text', 
 			data: { textarea_daily: textarea_daily },  
 			success : function(data) {
-				$('.float-right-padding .apartBorder').html(data);
+				$('.float-right-padding .rightPart').html(data);
 			},
 			error : function(request) {
 			    alert("请求失败");
@@ -239,13 +239,14 @@ $(function(){
      * 每日一句/座右铭
      */
     $('.container-fluid').on('click','#collapseOne a:nth-child(2)',function(){
+		//$('.float-right-padding .rightPart').css("height",$(window).height()-$('.bootstrapHead').height()-$('.breadcrumb').height()-$('.btn-group').height()-13);
     	var url = $(this).attr('url');
     	$.ajax({
 			type : "GET",
 			url : url,
 			cache: false,
 			success : function(data) {
-				$('.apartBorder').html(data);
+				$('.rightPart').html(data);
 			},
 			error : function(request) {
 			    alert("请求失败");
@@ -262,7 +263,7 @@ $(function(){
 			url : url,
 			cache: false,
 			success : function(data) {
-				$('.apartBorder').html(data);
+				$('.rightPart').html(data);
 			},
 			error : function(request) {
 			    alert("请求失败");
@@ -278,7 +279,7 @@ $(function(){
 			url : "writing/diary.jsp",
 			cache: false,
 			success : function(data) {
-				$('.apartBorder').html(data);
+				$('.rightPart').html(data);
 			},
 			error : function(request) {
 			    alert("请求失败");
@@ -289,12 +290,12 @@ $(function(){
      * 
      */
     $('.container-fluid').on('click',".btn-writing-submit",function(){
-    	/*var wether = $("#sel").val();
+    	var wether = $("#sel").val();
     	var adress = $("#addr").val();
-    	var date = $("#datetimepicker1").val();
-    	var comment = $("#comment").val();*/
+    	var date = $("#datetime").val();
+    	var comment = $("#comment").val();
     	var url = $("#form-writing").attr('action');
-    	/*url += "?whther="+wether+"&adress="+adress+"&date="+date+"&daily="+comment;*/
+    	url += "?whther="+wether+"&adress="+adress+"&date="+date+"&daily="+comment;
 		$.ajax({
 			type : "POST",
 			url : url,
@@ -303,7 +304,7 @@ $(function(){
 			data: { textarea_daily: "" },  
 			success : function(data) {
 				alert('fd');
-				$('.float-right-padding .apartBorder').html(data);
+				$('.float-right-padding .rightPart').html(data);
 			},
 			error : function(request) {
 			    alert("请求失败");
@@ -328,7 +329,7 @@ function initLeftMenu(){
 	var collapseHeight = $(window).height()-sumHeight-breadcrumbHeight-24-(collapseLength)*2-3;
 	firstCollapse.find('.card-body').css('padding','0px');
 	var collapse = firstCollapse.find('.card-body').height(collapseHeight);
-	$('.float-right-padding .apartBorder').css("height",$(window).height()-breadcrumbHeight-$('.breadcrumb').height()-$('.btn-group').height()-53);
+	$('.float-right-padding .rightPart').css("height",$(window).height()-breadcrumbHeight-$('.breadcrumb').height()-$('.btn-group').height()-89);
 	$('.container-fluid').children('.col-sm-2.float-left').css('padding-left','0px');
 	$('.container-fluid').children('.col-sm-2.float-left').css('padding-right','5px');	
 	$('.container-fluid').css('padding-left','5px');
@@ -345,7 +346,7 @@ function initLeftMenu(){
 	}
 	var url = $('#collapseOneFirst').attr('url');
 	$.get(url, function(data) {
-		$('.float-right-padding .apartBorder').html('<input class="singleid" type="hidden" value='+data.id+'>'+data.dailySentence);
+		$('.float-right-padding .rightPart').html(data);
 	});
 }
 
