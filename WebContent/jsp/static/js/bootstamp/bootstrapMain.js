@@ -37,7 +37,7 @@ $(function(){
 		var breadcrumbHeight= $('.bootstrapHead').height();
 		var collapseHeight = $(window).height()-sumHeight-breadcrumbHeight-24-(collapseLength)*2-3;
 		var collapse = showCollapse.find('.card-body').height(collapseHeight);
-		$('.float-right-padding .rightPart').css("height",$(window).height()-breadcrumbHeight-$('.breadcrumb').height()-$('.btn-group').height()-50);
+		$('.float-right-padding .rightPart').css("height",$(window).height()-breadcrumbHeight-$('.breadcrumb').height()-51);
 		var buttomCardWidth = $(window).width();
 		if(buttomCardWidth<1300&&buttomCardWidth>900){
 			$('.buttomCard').css('width','16%');
@@ -45,6 +45,13 @@ $(function(){
 			$('.buttomCard').css('width','15.6%');
 		}else if(buttomCardWidth>1300){
 			$('.buttomCard').css('width','16.266667%');
+		}
+		if($("#comment")[0]){
+			if($(window).height()<500){
+				$("#comment").parent().css('height','60%');
+			}else{
+				$("#comment").parent().css('height','80%');
+			}
 		}
 	});
 	/**
@@ -151,7 +158,8 @@ $(function(){
     		$('#myModal .modal-title').text('编辑');
     		var delSize = $("[name=imgVo]:checked").size();
 			if($(".rightPart input").hasClass("singleid")){
-				$('#myModal textarea').text($('div.rightPart').text());
+				$('#myModal textarea').text($('div.apartBorder').text());
+				$('.apartBorder').css('cssText','border:none!important');
 				id = $('.rightPart input').text();
 			}else{
 				if(delSize==1){
@@ -219,7 +227,7 @@ $(function(){
      */
     $('.container-fluid').on('click','.card-link,.list-group-item',function(){
     	var card_header = $('.collapse.show').prev().find('.card-header').text();
-		var list_group_primary = $('.collapse.show').find('.list-group-item-primary').text();    
+		var list_group_primary = $('.collapse.show').find('.list-group-item-primary').text(); 
 		var this_class = $(this)[0].className;
 		if(this_class.indexOf("list-group-item-primary") >= 0){
 			if($(this).find('.collapse.show').length==0){    		
@@ -227,19 +235,27 @@ $(function(){
 	    		$('.breadcrumb .breadcrumb-item:last').text(list_group_primary);
 	    	}
 		}else if(this_class.indexOf("card-link") >= 0){
-			if($(this).find('.collapse.show').length==0){    
+			if($(this).find('.collapse.show').length==0){
 				card_header = $(this).find('.card-header').text();
 				list_group_primary = $(this).next().find('.list-group-item-primary:first').text();
 	    		$('.breadcrumb .breadcrumb-item a').text(card_header);
 	    		$('.breadcrumb .breadcrumb-item:last').text(list_group_primary);
+	    		
 	    	}
+		}
+		
+		if($.trim(list_group_primary)=='日记'){
+			if($(window).height()<500){
+				$("#comment").parent().css('height','60%');
+			}else{
+				$("#comment").parent().css('height','80%');
+			}
 		}
     });
     /**
      * 每日一句/座右铭
      */
     $('.container-fluid').on('click','#collapseOne a:nth-child(2)',function(){
-		//$('.float-right-padding .rightPart').css("height",$(window).height()-$('.bootstrapHead').height()-$('.breadcrumb').height()-$('.btn-group').height()-13);
     	var url = $(this).attr('url');
     	$.ajax({
 			type : "GET",
@@ -329,7 +345,7 @@ function initLeftMenu(){
 	var collapseHeight = $(window).height()-sumHeight-breadcrumbHeight-24-(collapseLength)*2-3;
 	firstCollapse.find('.card-body').css('padding','0px');
 	var collapse = firstCollapse.find('.card-body').height(collapseHeight);
-	$('.float-right-padding .rightPart').css("height",$(window).height()-breadcrumbHeight-$('.breadcrumb').height()-$('.btn-group').height()-89);
+	$('.float-right-padding .rightPart').css("height",$(window).height()-breadcrumbHeight-$('.breadcrumb').height()-$('.btn-group').height()-51);
 	$('.container-fluid').children('.col-sm-2.float-left').css('padding-left','0px');
 	$('.container-fluid').children('.col-sm-2.float-left').css('padding-right','5px');	
 	$('.container-fluid').css('padding-left','5px');
@@ -347,6 +363,7 @@ function initLeftMenu(){
 	var url = $('#collapseOneFirst').attr('url');
 	$.get(url, function(data) {
 		$('.float-right-padding .rightPart').html(data);
+		$('.apartBorder').css('cssText','border:none!important');
 	});
 }
 

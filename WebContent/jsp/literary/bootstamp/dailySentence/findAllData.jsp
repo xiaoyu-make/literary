@@ -30,12 +30,12 @@
 		style="color: #09c; font-size: 20px;">${pageCount }</font>页
 	</span>
 	<c:if test="${currentPage != 1 }">
-		<b href="javascript:void(0)" class="first_page" data-pnum="1">首页<span
+		<b href="javascript:void(0)" class="first_page cursorPointer" data-pnum="1">首页<span
 			class="sr-only"></span></b>										
 	<a aria-label="Previous" href="javascript:void(0)" class="prev_page" data-pnum="${currentPage -1 }"><span aria-hidden="true">«</span></a>
 	</c:if>
 	<c:if test="${currentPage == 1 }">
-		<b href="javascript:void(0)" class="first_page">首页<span
+		<b href="javascript:void(0)" class="first_page cursorPointer">首页<span
 			class="sr-only"></span></b>
 		<a aria-label="Previous" href="javascript:void(0)"><span
 			aria-hidden="true">«</span></a>

@@ -10,7 +10,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath() %>/jsp/static/css/bootstamp/bootstrap.min.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath() %>/jsp/static/css/bootstamp/bootstrapMain.css?70=49">
+	href="<%=request.getContextPath() %>/jsp/static/css/bootstamp/bootstrapMain.css??r=<%=Math.random()%>">
 	
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/jquery.2.1.4.min.js"></script>
@@ -19,7 +19,7 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstrap-table.js"></script>
 <script type="text/javascript"
-	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstrapMain.js?zsP70=49ss"></script>
+	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstrapMain.js??r=<%=Math.random()%>"></script>
 </head>
 <body style="overflow-x: hidden;">
 	<div class="bootstrapHead">
@@ -86,11 +86,10 @@
 					<div id="collapseThree" class="collapse" data-parent="#accordion">
 						<div class="card-body">
 							<div class="list-group">
-								<a href="#" class="list-group-item list-group-item-action rounded-0">我的作品1</a> 
-								<a href="#" class="list-group-item list-group-item-action rounded-0">我的作品2</a> 
-								<a href="#" class="list-group-item list-group-item-action rounded-0">我的作品3</a>
-								<a href="#" class="list-group-item list-group-item-action rounded-0">我的作品4</a> 
-								<a href="#" class="list-group-item list-group-item-action rounded-0">我的作品5</a>								
+								<a href="#" class="list-group-item list-group-item-action rounded-0">日记</a> 
+								<a href="#" class="list-group-item list-group-item-action rounded-0">散文</a> 
+								<a href="#" class="list-group-item list-group-item-action rounded-0">长篇小说</a>
+								<a href="#" class="list-group-item list-group-item-action rounded-0">灵感</a> 
 							</div>
 						</div>
 					</div>

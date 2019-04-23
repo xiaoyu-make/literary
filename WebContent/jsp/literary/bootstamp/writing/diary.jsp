@@ -45,12 +45,10 @@
     	</div>		
 	</div>
 	<b for="comment">正文:</b>
-	<div class="form-group" style="height: 83%;margin-right:9px;">
-		<textarea class="form-control height-100" id="comment" name="comment" style="text-decoration:underline;">
-			
-		</textarea>
+	<div class="form-group" style="height: 80%;margin-right:9px;">
+		<textarea class="form-control height-100" id="comment" name="comment" style="text-decoration:underline;margin:0 3%;">   </textarea>
 	</div>
-	  <button type="button" class="btn btn-primary btn-writing-submit" style="margin-top: 7px;">提交</button>
+	  <button type="button" class="btn btn-primary btn-writing-submit" style="margin-top: 7px;margin-left: 3%;">提交</button>
 </form>
 <script type="text/javascript">
 $(function(){
