@@ -5,29 +5,29 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th><input type="checkbox" id="checkAll" /></th>
 				<th data-field="id">id</th>
-				<th data-field="dailySentence">daily_sentence</th>
-				<th data-field="date">date</th>
+				<th data-field="userid">用户id</th>
+				<th data-field="wether">天气</th>	
+				<th data-field="address">地址</th>	
+				<th data-field="date">日期</th>
+				<th data-field="diary">日记</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="dailySentence" items="${allDailySentence }"
-				varStatus="status">
+			<c:forEach var="myWorksDiary" items="${allMyWorksDiary}" varStatus="status">
 				<tr>
-					<td><input type="checkbox" name="imgVo" value="" /></td>
-					<td>${dailySentence.id }</td>
-					<td>${dailySentence.dailySentence }</td>
-					<td><fmt:formatDate value="${dailySentence.date }"
-							pattern="yyyy-MM-dd HH:mm:ss" /></td>
+					<td>${myWorksDiary.id }</td>
+					<td>${myWorksDiary.userid}</td>
+					<td>${myWorksDiary.wether }</td>
+					<td>${myWorksDiary.address }</td>
+					<td><fmt:formatDate value="${myWorksDiary.date }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+					<td>${myWorksDiary.diary }</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<input
-		action="${pageContext.request.contextPath }/literary/dailySentence/getAllSentence?"
+	<input action="${pageContext.request.contextPath }/literary/myworksdiary/getAllMyWorksDiary?"
 		type="hidden" id="page_current" value="${currentPage }">
-
 	<div class="pages">
 		<span style="font-size: 12px; color: #666;">共<font
 			style="color: #09c; font-size: 20px;">${count }</font>条数据,<font

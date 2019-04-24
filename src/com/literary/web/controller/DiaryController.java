@@ -38,6 +38,6 @@ public class DiaryController {
 		Boolean addDiary = diaryService.addDiary(wether,adress,date,comment);
 		if(!addDiary)
 			return "../common/error";
-		return "bootstamp/dailySentence/motto";		
+		return "bootstamp/myWorks/myWorkDiary";		
 	}
 }

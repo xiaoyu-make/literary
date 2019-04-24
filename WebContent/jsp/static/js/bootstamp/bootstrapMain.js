@@ -303,7 +303,7 @@ $(function(){
 		});
     });   
     /**
-     * 
+     * 写作/日记(提交数据)
      */
     $('.container-fluid').on('click',".btn-writing-submit",function(){
     	var wether = $("#sel").val();
@@ -319,7 +319,6 @@ $(function(){
 		    dataType:'text', 
 			data: { textarea_daily: "" },  
 			success : function(data) {
-				alert('fd');
 				$('.float-right-padding .rightPart').html(data);
 			},
 			error : function(request) {
@@ -327,7 +326,25 @@ $(function(){
 			}
 		});
     });
-    
+    /**
+     * 我的作品/日记
+     */
+    $('.container-fluid').on('click','#collapseThree a:nth-child(1)',function(){
+    	var url = $(this).attr('url');
+		$.ajax({
+			type : "POST",
+			url : url,
+			cache: false,
+		    dataType:'text', 
+			data: { textarea_daily: "" },  
+			success : function(data) {
+				$('.float-right-padding .rightPart').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });
 });
 
 /**
