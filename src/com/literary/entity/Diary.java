@@ -8,7 +8,7 @@ public class Diary implements Serializable {
 	private static final long serialVersionUID = 918301109538454638L;
 
 	private int id;
-	private int userid;
+	private int userId;
 	private String wether;
 	private String address;
 	private Date date;
@@ -22,12 +22,14 @@ public class Diary implements Serializable {
 		this.id = id;
 	}
 
-	public int getUseid() {
-		return userid;
+
+
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUseid(int userid) {
-		this.userid = userid;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getWether() {

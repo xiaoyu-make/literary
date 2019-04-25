@@ -311,7 +311,7 @@ $(function(){
     	var date = $("#datetime").val();
     	var comment = $("#comment").val();
     	var url = $("#form-writing").attr('action');
-    	url += "?whther="+wether+"&adress="+adress+"&date="+date+"&daily="+comment;
+    	url += "?wether="+wether+"&adress="+adress+"&date="+date+"&daily="+comment;
 		$.ajax({
 			type : "POST",
 			url : url,

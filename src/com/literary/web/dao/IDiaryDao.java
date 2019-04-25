@@ -11,7 +11,7 @@ public interface IDiaryDao {
 	 * 添加日记
 	 * @return
 	 */
-	public Boolean addDiary(@Param("userId") int userId, @Param("wether") String wether, @Param("adress") String adress,
+	public Boolean addDiary(@Param("userId") Integer userId, @Param("wether") String wether, @Param("adress") String adress,
 			@Param("date") Timestamp date, @Param("comment") String comment);	
 	
 }

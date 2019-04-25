@@ -1,5 +1,6 @@
 package com.literary.web.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class MyWorksDiaryController {
 		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("pageSize", pageSize);
 		maps.put("pageNum", (pageNum - 1) * pageSize);
-		List<Diary> allMyWorksDiary = myworksdiary.getAllMyWorksDiary(maps);
+		List<Diary> allMyWorksDiary = myworksdiary.getAllMyWorksDiary(maps); 		
 		int count = myworksdiary.getCountMyWorksDiary();
 		Pagination page = new Pagination(count);
 		page.setCurrentPage(pageNum);
