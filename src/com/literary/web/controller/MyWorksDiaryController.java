@@ -48,6 +48,7 @@ public class MyWorksDiaryController {
 			modelAndView.setViewName("/bootstamp/myWorks/myWorkDiary");
 			modelAndView.addObject("allMyWorksDiary", allMyWorksDiary);
 		}
+		
 		return modelAndView;
 	}
 	
