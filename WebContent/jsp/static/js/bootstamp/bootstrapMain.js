@@ -345,6 +345,52 @@ $(function(){
 			}
 		});
     });
+    /**
+     * 我的作品/日记/删除
+     */
+    $('.container-fluid').on('click','.dailyDelete',function(){
+    	var url = $(this).parent().parent().attr('url');
+		$.ajax({
+			type : "POST",
+			url : url,
+			cache: false,
+		    dataType:'text', 
+			data: { textarea_daily: "" },  
+			success : function(data) {
+				$('.float-right-padding .rightPart').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });
+    /**
+     * 我的作品/日记/查看
+     */
+    $('.container-fluid').on('click','.dailyScan',function(){    	
+    	var url = $(this).parent().parent().attr('url_scan');
+		$.ajax({
+			type : "POST",
+			url : url,
+			cache: false,
+			data: { textarea_daily: "" },  
+			success : function(data) {
+				$('.float-right-padding .rightPart').html(data);
+				var dailyScanDataDate = $('#dailyScanDataDate').val();
+				var dailyScanDataWether = $('#dailyScanDataWether').val();
+				var dailyScanDataDiary = $('#dailyScanDataDiary').val();
+				var dailyScanDataAddress = $('#dailyScanDataAddress').val();
+		        $("#sel option[value='" + dailyScanDataWether + "']").attr("selected", true);  
+				$("#sel").val(dailyScanDataWether);
+		    	$("#addr").val(dailyScanDataAddress);
+		    	$("#datetime").val(dailyScanDataDate);
+		    	$("#comment").val(dailyScanDataDiary);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });   
 });
 
 /**

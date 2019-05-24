@@ -20,4 +20,14 @@ public interface IMyWorksDiaryDao {
 	 * @return
 	 */
 	public int getCountMyWorksDiary();
+	/**
+	 * 删除一条日记
+	 * @id
+	 */
+	public Boolean deleteMyWorkDiary(@Param("id")int id);
+	/**
+	 * 查看一条日记
+	 * @id
+	 */
+	public Diary scanMyWorkDiary(@Param("id")int id);
 }

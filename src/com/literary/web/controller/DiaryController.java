@@ -40,4 +40,5 @@ public class DiaryController {
 			return "../common/error";
 		return "redirect:/literary/myworksdiary/getAllMyWorksDiary";		
 	}
+	
 }

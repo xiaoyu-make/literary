@@ -24,5 +24,17 @@ public class MyWorksDiaryServiceImpl implements IMyWorksDiaryService {
 	public int getCountMyWorksDiary() {		
 		return myworkdiary.getCountMyWorksDiary();
 	}
+
+	@Override
+	public Boolean deleteMyWorkDiary(int id) {
+		return myworkdiary.deleteMyWorkDiary(id);
+	}
+
+	@Override
+	public Diary scanMyWorkDiary(int id) {
+		return myworkdiary.scanMyWorkDiary(id);
+	}
+	
+	
 }
 

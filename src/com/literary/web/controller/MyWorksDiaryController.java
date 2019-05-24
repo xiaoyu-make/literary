@@ -52,4 +52,31 @@ public class MyWorksDiaryController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("deleteMyWorkDiary")
+	public String deleteMyWorkDiary(HttpServletRequest request, HttpServletResponse response, Model model){
+		String idStr = request.getParameter("id");
+		Integer id = 0;
+		if(!idStr.isEmpty())
+			id = Integer.valueOf(idStr);
+		Boolean deleteMyWorkDiary = myworksdiary.deleteMyWorkDiary(id);
+		if (deleteMyWorkDiary == false)
+			return "../common/error";
+		return "redirect:/literary/myworksdiary/getAllMyWorksDiary";
+	}
+	
+	@RequestMapping("scanMyWorkDiary")
+	public String scanMyWorkDiary(HttpServletRequest request, HttpServletResponse response, Model model){
+		String idStr = request.getParameter("id");
+		Integer id = 0;
+		if(!idStr.isEmpty())
+			id = Integer.valueOf(idStr);
+		Diary scanMyWorkDiary = myworksdiary.scanMyWorkDiary(id);
+		if (scanMyWorkDiary == null)
+			return "../common/error";
+		model.addAttribute("scanMyWorkDiary", scanMyWorkDiary);
+		return "/bootstamp/writing/diary";
+	}
+	
+	
+	
 }

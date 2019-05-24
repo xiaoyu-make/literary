@@ -72,8 +72,6 @@
 								<a url="#" class="list-group-item list-group-item-action rounded-0 cursorPointer">散文</a> 
 								<a url="#" class="list-group-item list-group-item-action rounded-0 cursorPointer">长篇小说</a>
 								<a url="#" class="list-group-item list-group-item-action rounded-0 cursorPointer">灵感</a>
-								<a url="#" class="list-group-item list-group-item-action rounded-0 cursorPointer">标记</a>
-								
 							</div>
 						</div>
 					</div>

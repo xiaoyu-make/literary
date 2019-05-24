@@ -21,7 +21,13 @@
 	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/datetimepicker/highlight.min.js"></script>
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/datetimepicker/tempusdominus-bootstrap-4.js"></script>	
-	
+
+<input type="hidden" id="dailyScanDataDate" value="${scanMyWorkDiary.date}">
+<input type="hidden" id="dailyScanDataWether" value="${scanMyWorkDiary.wether}">
+<input type="hidden" id="dailyScanDataAddress" value="${scanMyWorkDiary.address}">
+<input type="hidden" id="dailyScanDataDiary" value="${scanMyWorkDiary.diary}">
+
+
 <form id="form-writing" action="<%=request.getContextPath() %>/literary/diary/addDiary" class="form-inline" style="display: unset;">
 	<div class="form-group" style="padding-top: 10px;">
 		<b for="sel">天气:</b> 

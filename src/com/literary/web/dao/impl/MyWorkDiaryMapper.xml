@@ -19,7 +19,14 @@
     <select id="getCountMyWorksDiary" resultType="java.lang.Integer" parameterType="java.lang.Integer">
    		select COUNT(*) from diary
     </select>  
-    
+    <!-- 删除一条日记 -->
+    <delete id="deleteMyWorkDiary" parameterType="int">
+    	delete from diary where id=#{id}
+    </delete>
+    <!-- 查看一条日记 -->
+    <select id="scanMyWorkDiary" parameterType="int" resultMap="diaryResMap">
+    	select * from diary where id=#{id}
+    </select>
 </mapper>
 
 
