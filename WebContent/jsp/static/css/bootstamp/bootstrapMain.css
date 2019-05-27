@@ -124,8 +124,10 @@ body{
 .table {
     margin-bottom: 0rem!important;
 }
-
-
+#form-prose textarea {
+	width: 100%;
+	background: url(../../image/timg.jpg);
+}
 
 
 

@@ -24,6 +24,11 @@ $(function(){
 			$(this).next().find('a:first').addClass('list-group-item-primary');
 			$(this).next().find('a:first').siblings().removeClass('list-group-item-primary');
 		}
+		/*var url = $(this).next().find('a:first').attr('url');
+		$.get(url, function(data) {
+			$('.float-right-padding .rightPart').html(data);
+			$('.apartBorder').css('cssText','border:none!important');
+		});*/
 	});
 	/**
 	 * 窗口改变大小时,这个方法保持页面不变
@@ -390,7 +395,44 @@ $(function(){
 			    alert("请求失败");
 			}
 		});
-    });   
+    });
+    /**
+     * 写作/散文(获散文模板)
+     */
+    $('.container-fluid').on('click','#collapseTwo a:nth-child(2)',function(){
+    	$.ajax({
+			type : "GET",
+			url : "writing/prose.jsp",
+			cache: false,
+			success : function(data) {
+				$('.rightPart').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			},
+		});
+    });
+    /**
+     * 写作/散文(提交数据)
+     */
+    $('.container-fluid').on('click',".btn-prose-submit",function(){
+    	var prose = $("#prose_comment").val();
+    	var url = $("#form-prose").attr('action');
+    	url += "?prose="+prose;
+		$.ajax({
+			type : "POST",
+			url : url,
+			cache: false,
+		    dataType:'text', 
+			success : function(data) {
+				$('.float-right-padding .rightPart').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });
+    
 });
 
 /**
