@@ -13,16 +13,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.literary.entity.Diary;
+import com.literary.entity.Prose;
 import com.literary.util.Pagination;
-import com.literary.web.service.IMyWorksDiaryService;
+import com.literary.web.service.IMyWorksProseService;
 
 @Controller
 @RequestMapping("/myworksprose")
 public class MyWorksProseController {
 	
 	@Autowired
-	IMyWorksDiaryService myworksdiary;
+	IMyWorksProseService myworksprose;
 	
 	@RequestMapping("/getAllMyWorksProse")
 	public ModelAndView getAllMyWorksProse(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -32,8 +32,8 @@ public class MyWorksProseController {
 		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("pageSize", pageSize);
 		maps.put("pageNum", (pageNum - 1) * pageSize);
-		List<Diary> allMyWorksDiary = myworksdiary.getAllMyWorksDiary(maps); 		
-		int count = myworksdiary.getCountMyWorksDiary();
+		List<Prose> allMyWorksProse = myworksprose.getAllMyWorksProse(maps); 		
+		int count = myworksprose.getCountMyWorksProse();
 		Pagination page = new Pagination(count);
 		page.setCurrentPage(pageNum);
 		modelAndView.addObject("pnums", page.getPageNumList());
@@ -44,37 +44,37 @@ public class MyWorksProseController {
 		modelAndView.addObject("last_page", page.getCurrentPage());
 		modelAndView.addObject("count", count);
 		modelAndView.addObject("pageCount", page.getPages());
-		if (allMyWorksDiary != null) {
-			modelAndView.setViewName("/bootstamp/myWorks/myWorkDiary");
-			modelAndView.addObject("allMyWorksDiary", allMyWorksDiary);
+		if (allMyWorksProse != null) {
+			modelAndView.setViewName("/bootstamp/myWorks/myWorkProse");
+			modelAndView.addObject("allMyWorksProse", allMyWorksProse);
 		}
 		   
 		return modelAndView;
 	}
 	
-	@RequestMapping("deleteMyWorkDiary")
-	public String deleteMyWorkDiary(HttpServletRequest request, HttpServletResponse response, Model model){
+	@RequestMapping("deleteMyWorkProse")
+	public String deleteMyWorkProse(HttpServletRequest request, HttpServletResponse response, Model model){
 		String idStr = request.getParameter("id");
 		Integer id = 0;
 		if(!idStr.isEmpty())
 			id = Integer.valueOf(idStr);
-		Boolean deleteMyWorkDiary = myworksdiary.deleteMyWorkDiary(id);
-		if (deleteMyWorkDiary == false)
+		Boolean deleteMyWorkProse = myworksprose.deleteMyWorkProse(id);
+		if (deleteMyWorkProse == false)
 			return "../common/error";
-		return "redirect:/literary/myworksdiary/getAllMyWorksDiary";
+		return "redirect:/literary/myworksprose/getAllMyWorksProse";
 	}
 	
-	@RequestMapping("scanMyWorkDiary")
-	public String scanMyWorkDiary(HttpServletRequest request, HttpServletResponse response, Model model){
+	@RequestMapping("scanMyWorkProse")
+	public String scanMyWorkProse(HttpServletRequest request, HttpServletResponse response, Model model){
 		String idStr = request.getParameter("id");
 		Integer id = 0;
 		if(!idStr.isEmpty())
 			id = Integer.valueOf(idStr);
-		Diary scanMyWorkDiary = myworksdiary.scanMyWorkDiary(id);
-		if (scanMyWorkDiary == null)
+		Prose scanMyWorkProse = myworksprose.scanMyWorkProse(id);
+		if (scanMyWorkProse == null)
 			return "../common/error";
-		model.addAttribute("scanMyWorkDiary", scanMyWorkDiary);
-		return "/bootstamp/writing/diary";
+		model.addAttribute("scanMyWorkProse", scanMyWorkProse);
+		return "/bootstamp/writing/prose";
 	}
 	
 	

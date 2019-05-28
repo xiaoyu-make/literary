@@ -26,7 +26,7 @@ public class ProseController {
 		Boolean addDiary = proseService.addProse(prose);
 		if(!addDiary)
 			return "../common/error";
-		return "redirect:/literary/myworksdiary/getAllMyWorksProse";		
+		return "redirect:/literary/myworksprose/getAllMyWorksProse";		
 	}
 	
 }

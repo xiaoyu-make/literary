@@ -7,29 +7,24 @@
 			<tr>
 				<th data-field="id" style= "width:2%">id</th>
 				<th data-field="" style= "width:2%">用户id</th>
-				<th data-field="wether" style= "width:4%">天气</th>	
-				<th data-field="address" style= "width:5%">地址</th>	
+				<th data-field="diary" style= "width:77%">散文</th>
 				<th data-field="date" style= "width:4%">日期</th>
-				<th data-field="diary" style= "width:77%">日记</th>
 				<th style= "width:6%;">操作</th>				
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="myWorksDiary" items="${allMyWorksDiary}" varStatus="status">
-				<tr url="${pageContext.request.contextPath }/literary/myworksdiary/deleteMyWorkDiary?id=${myWorksDiary.id }" url_scan="${pageContext.request.contextPath }/literary/myworksdiary/scanMyWorkDiary?id=${myWorksDiary.id }">
-					<td>${myWorksDiary.id }</td>
-					<td>${myWorksDiary.userId}</td>
-					<td>${myWorksDiary.wether }</td>
-					<td>${myWorksDiary.address }</td>
-					<td><fmt:formatDate value="${myWorksDiary.date }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-					<td>${myWorksDiary.diary }</td>
-					<td><button class="dailyDelete" style="cursor:pointer;">删除</button><button class="dailyScan" style="cursor:pointer;margin-top: 20px;">查看</button></td>
+			<c:forEach var="myWorksProse" items="${allMyWorksProse}" varStatus="status">
+				<tr url="${pageContext.request.contextPath }/literary/myworksprose/deleteMyWorkProse?id=${myWorksProse.id }" url_scan="${pageContext.request.contextPath }/literary/myworksprose/scanMyWorkProse?id=${myWorksProse.id }">
+					<td>${myWorksProse.id }</td>
+					<td>${myWorksProse.userId}</td>
+					<td>${myWorksProse.prose }</td>
+					<td><fmt:formatDate value="${myWorksProse.date }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+					<td><button class="proseDelete" style="cursor:pointer;">删除</button><button class="proseScan" style="cursor:pointer;margin-top: 20px;">查看</button></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<input action="${pageContext.request.contextPath }/literary/myworksdiary/getAllMyWorksDiary?"
-		type="hidden" id="page_current" value="${currentPage }">
+	<input action="${pageContext.request.contextPath }/literary/myworksprose/getAllMyWorksProse?" type="hidden" id="page_current" value="${currentPage }">
 	<div class="pages">
 		<span style="font-size: 12px; color: #666;">共<font
 			style="color: #09c; font-size: 20px;">${count }</font>条数据,<font

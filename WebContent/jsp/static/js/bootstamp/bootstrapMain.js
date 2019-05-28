@@ -390,6 +390,11 @@ $(function(){
 		    	$("#addr").val(dailyScanDataAddress);
 		    	$("#datetime").val(dailyScanDataDate);
 		    	$("#comment").val(dailyScanDataDiary);
+		    	$('.btn-writing-submit').css('display','none');
+		    	$("#comment").attr("disabled","disabled");
+		    	$("#datetime").attr("disabled","disabled");
+		    	$("#addr").attr("disabled","disabled");
+		    	$("#sel").attr("disabled","disabled");
 			},
 			error : function(request) {
 			    alert("请求失败");
@@ -432,7 +437,68 @@ $(function(){
 			}
 		});
     });
-    
+    /**
+     * 我的作品/散文
+     */
+    $('.container-fluid').on('click','#collapseThree a:nth-child(2)',function(){
+    	var url = $(this).attr('url');
+		$.ajax({
+			type : "POST",
+			url : url,
+			cache: false,
+		    dataType:'text', 
+			data: { textarea_daily: "" },  
+			success : function(data) {
+				$('.float-right-padding .rightPart').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });
+    /**
+     * 我的作品/散文/删除
+     */
+    $('.container-fluid').on('click','.proseDelete',function(){
+    	var url = $(this).parent().parent().attr('url');
+		$.ajax({
+			type : "POST",
+			url : url,
+			cache: false,
+		    dataType:'text', 
+			data: { textarea_daily: "" },  
+			success : function(data) {
+				$('.float-right-padding .rightPart').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });
+    /**
+     * 我的作品/散文/查看
+     */
+    $('.container-fluid').on('click','.proseScan',function(){    	
+    	var url = $(this).parent().parent().attr('url_scan');
+		$.ajax({
+			type : "POST",
+			url : url,
+			cache: false,
+			data: { textarea_daily: "" },  
+			success : function(data) {
+				$('.float-right-padding .rightPart').html(data);
+				var proseScanDataDate = $('#proseScanDataDate').val();
+				var proseScanDataProse = $('#proseScanDataProse').val();
+		    	$("#prose_comment").val(proseScanDataProse);
+		    	$('.btn-prose-submit').css('display','none');
+		    	$("#prose_comment").attr("disabled","disabled");
+		    	//$("#prose_comment").append(proseScanDataDate);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
+    });
 });
 
 /**

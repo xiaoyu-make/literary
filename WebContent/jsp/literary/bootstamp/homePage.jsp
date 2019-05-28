@@ -85,7 +85,7 @@
 						<div class="card-body">
 							<div class="list-group">
 								<a url="<%=request.getContextPath() %>/literary/myworksdiary/getAllMyWorksDiary" class="list-group-item list-group-item-action rounded-0 cursorPointer">日记</a> 
-								<a href="#" class="list-group-item list-group-item-action rounded-0">散文</a> 
+								<a url="<%=request.getContextPath() %>/literary/myworksprose/getAllMyWorksProse" href="#" class="list-group-item list-group-item-action rounded-0 cursorPointer">散文</a> 
 								<a href="#" class="list-group-item list-group-item-action rounded-0">长篇小说</a>
 								<a href="#" class="list-group-item list-group-item-action rounded-0">灵感</a> 
 							</div>
