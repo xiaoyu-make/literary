@@ -499,6 +499,23 @@ $(function(){
 			}
 		});
     });
+    /**
+     * 写作/长篇小说(获取长篇小说模板)
+     */
+    $('.container-fluid').on('click','#collapseTwo a:nth-child(3)',function(){
+    	$.ajax({
+			type : "GET",
+			url : "writing/novel.jsp",
+			cache: false,
+			success : function(data) {
+				$('.rightPart').html(data);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			},
+		});
+    });
+    
 });
 
 /**
