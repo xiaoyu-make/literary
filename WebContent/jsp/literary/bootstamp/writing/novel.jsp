@@ -11,9 +11,14 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstampztree/jquery.ztree.exedit.js"></script>
 <div id="tree"></div>
-
 <ul id="treeDemo" class="ztree col-sm-3" style="overflow:auto;float:left;"></ul>
-<div class="col-sm-9" style="overflow:auto;float:right;padding-left:0px;">123456789</div>
+<div class="col-sm-9" style="overflow: auto; float: right; padding-left: 0px;height:100%;">
+	<textarea class="form-control height-100" id="novel_comment" name="novel_comment" style="text-decoration: none;height:93%!important;">  
+		
+	</textarea>
+	<button type="button" class="btn btn-primary btn-novel-submit" style="margin-top: 7px;">保存</button>
+	<div id="dateTimeNovel"></div>
+</div>
 <script type="text/javascript">
 var setting = {
     view: {
@@ -35,7 +40,7 @@ var setting = {
 };
 
 var zNodes =[
-{id:1, pId:0, name:"[core] 基本功能 演示", open:true}
+{id:1, pId:0, name:"请输入小说名", open:true}
 ];
 
 $(document).ready(function(){

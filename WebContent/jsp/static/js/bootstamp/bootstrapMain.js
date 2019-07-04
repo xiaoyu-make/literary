@@ -515,6 +515,13 @@ $(function(){
 			},
 		});
     });
+    /**
+     * 写作/长篇小说的树结构z-tree
+     */
+    $('.container-fluid').on('click','.btn-novel-submit',function(){
+    	var novel_text = $('#novel_comment').val();
+    	var novel_ = 
+    });
     
 });
 

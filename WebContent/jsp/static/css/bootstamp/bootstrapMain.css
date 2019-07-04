@@ -156,7 +156,9 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+#novel_comment {
+	background: url(../../image/novel.jpg);
+}
 
 
 
