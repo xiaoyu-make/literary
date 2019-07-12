@@ -520,7 +520,44 @@ $(function(){
      */
     $('.container-fluid').on('click','.btn-novel-submit',function(){
     	var novel_text = $('#novel_comment').val();
-    	var novel_ = 
+    	var novel_title = new Array();
+    	var novel_parter = new Array();
+    	var novel_chapter = new Array();
+    	var novel_section = new Array();
+    	var novel_others = new Array();
+    	
+    	$(".node_name").each(function(){
+   		 var node_name_parent = $(this).parent();
+   		 if(node_name_parent.hasClass('level0')){
+   			 novel_title.push($(this).text());
+   		 }else if(node_name_parent.hasClass('level1')){
+   			 novel_parter.push($(this).text());
+   		 }else if(node_name_parent.hasClass('level2')){
+   			 novel_chapter.push($(this).text());
+   		 }else if(node_name_parent.hasClass('level3')){
+   			 novel_section.push($(this).text());
+   		 }else{
+   			 novel_others.push($(this).text());
+   		 }
+    	});
+    	$.ajax({
+			type : "POST",
+			url : url,
+			cache: false,
+			data: { textarea_daily: "" },  
+			success : function(data) {
+				$('.float-right-padding .rightPart').html(data);
+				var proseScanDataDate = $('#proseScanDataDate').val();
+				var proseScanDataProse = $('#proseScanDataProse').val();
+		    	$("#prose_comment").val(proseScanDataProse);
+		    	$('.btn-prose-submit').css('display','none');
+		    	$("#prose_comment").attr("disabled","disabled");
+		    	//$("#prose_comment").append(proseScanDataDate);
+			},
+			error : function(request) {
+			    alert("请求失败");
+			}
+		});
     });
     
 });

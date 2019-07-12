@@ -19,7 +19,7 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstrap-table.js"></script>
 <script type="text/javascript"
-	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstrapMain.js??r=<%=Math.random()%>"></script>
+	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstrapMain.js??r3=<%=Math.random()%>"></script>
 </head>
 <body style="overflow-x: hidden;">
 	<div class="bootstrapHead">
