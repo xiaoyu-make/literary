@@ -11,6 +11,7 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath() %>/jsp/static/js/bootstamp/bootstampztree/jquery.ztree.exedit.js"></script>
 <div id="tree"></div>
+<input type="hidden" id="addNovel" url="<%=request.getContextPath() %>/literary/novel/addNovel">
 <ul id="treeDemo" class="ztree col-sm-3" style="overflow:auto;float:left;"></ul>
 <div class="col-sm-9" style="overflow: auto; float: right; padding-left: 0px;height:100%;">
 	<textarea class="form-control height-100" id="novel_comment" name="novel_comment" style="text-decoration: none;height:93%!important;">  

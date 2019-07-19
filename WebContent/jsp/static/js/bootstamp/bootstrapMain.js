@@ -525,7 +525,8 @@ $(function(){
     	var novel_chapter = new Array();
     	var novel_section = new Array();
     	var novel_others = new Array();
-    	
+    	var url = $('#addNovel').attr('url');
+    	$.session.set("s","f");
     	$(".node_name").each(function(){
    		 var node_name_parent = $(this).parent();
    		 if(node_name_parent.hasClass('level0')){
@@ -544,21 +545,22 @@ $(function(){
 			type : "POST",
 			url : url,
 			cache: false,
-			data: { textarea_daily: "" },  
+			data : {
+				novel_title : novel_title,
+				novel_parter : novel_parter,
+				novel_chapter : novel_chapter,
+				novel_section : novel_section,
+				novel_others : novel_others,
+			},  
 			success : function(data) {
-				$('.float-right-padding .rightPart').html(data);
-				var proseScanDataDate = $('#proseScanDataDate').val();
-				var proseScanDataProse = $('#proseScanDataProse').val();
-		    	$("#prose_comment").val(proseScanDataProse);
-		    	$('.btn-prose-submit').css('display','none');
-		    	$("#prose_comment").attr("disabled","disabled");
-		    	//$("#prose_comment").append(proseScanDataDate);
+				
 			},
 			error : function(request) {
 			    alert("请求失败");
 			}
 		});
     });
+    
     
 });
 
