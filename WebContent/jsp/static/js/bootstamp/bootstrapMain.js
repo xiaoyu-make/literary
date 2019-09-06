@@ -525,8 +525,15 @@ $(function(){
     	var novel_chapter = new Array();
     	var novel_section = new Array();
     	var novel_others = new Array();
+    	
+        function saveStorage() {
+            lStorage.mydata = t2.value;
+            t1.value += "localStorage保存mydata:" + t2.value + "\n";
+        }
+    	
+        
     	var url = $('#addNovel').attr('url');
-    	$.session.set("s","f");
+    	
     	$(".node_name").each(function(){
    		 var node_name_parent = $(this).parent();
    		 if(node_name_parent.hasClass('level0')){
